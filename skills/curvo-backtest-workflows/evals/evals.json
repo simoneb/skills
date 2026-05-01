@@ -1,0 +1,23 @@
+{
+  "skill_name": "curvo-backtest-workflows",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Build this portfolio on Curvo Backtest and give me the final URL plus CAGR, volatility, and Sharpe. Use the exact ISIN for XEON: 40% Vanguard FTSE All-World UCITS ETF, 10% iShares MSCI World Small Cap UCITS ETF, 15% Invesco Physical Gold, 10% XEON / LU0290358497, 25% Amundi Euro Government Bond 7-10Y UCITS ETF.",
+      "expected_output": "The workflow resolves XEON by ISIN to Xtrackers II EUR Overnight Rate Swap UCITS ETF 1C, validates the final Curvo composition, and returns the final URL and summary metrics.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Compare my Curvo portfolio with this one: https://curvo.eu/backtest/en/portfolio/no-regret-eu-swda--NoIgdg9gBATgpgc3gFynArlAygdQCICCIANMKAJICiADNQEIAsAMgKwCaAnABwDMJ1AOhYBdUiCq06PAGoAVAHIAmDtX4CAjIpFiJ9ABLUGAcSY8Oazdoo16DeXh4A2aorVbhHoA. If compare mode does not work, use a fallback that still produces a fair comparison.",
+      "expected_output": "The workflow either uses Curvo compare mode or falls back to opening both portfolios separately, aligns the time period and rebalancing settings, and reports metric differences clearly.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "I need a reusable Curvo backtest workflow for ETF portfolios that should not depend on a specific browser tool. Prefer direct URLs or short scripts when possible, and only use manual UI interaction as a fallback.",
+      "expected_output": "The workflow explicitly prefers deterministic URL or script-driven steps, avoids binding itself to any single browser tool name, and explains validation checkpoints for composition and metrics.",
+      "files": []
+    }
+  ]
+}
