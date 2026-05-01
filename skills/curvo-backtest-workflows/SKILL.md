@@ -94,6 +94,8 @@ When constructing from scratch:
 4. Once all funds are present, verify the total is 100 and the portfolio title or summary reflects the expected structure.
 5. Run the backtest.
 
+If the environment supports Playwright or a similar browser automation runtime, prefer the bundled helper at `scripts/curvo_build_portfolio.js` instead of manual inspection of the full ETF dropdown.
+
 When scripting is available, prefer one small script that:
 
 - finds the add-fund controls,
@@ -103,6 +105,8 @@ When scripting is available, prefer one small script that:
 
 This is usually more reliable than repeated clicks, especially with long Curvo selectors.
 
+The bundled script is designed around typed search and exact row matching so the agent does not need to inspect or reason over the full ETF list.
+
 Before running the backtest, have the script verify:
 
 - every requested fund was matched,
@@ -110,6 +114,16 @@ Before running the backtest, have the script verify:
 - weights sum to 100,
 - no duplicate rows were introduced,
 - and the visible portfolio rows match the normalized working object.
+
+Suggested invocation shape:
+
+```bash
+node skills/curvo-backtest-workflows/scripts/curvo_build_portfolio.js payload.json
+```
+
+Where `payload.json` contains the normalized working object plus optional execution settings such as `headless`, `runBacktest`, and `baseUrl`.
+
+See `examples/payload.example.json` for a concrete starting point.
 
 ## Comparison Workflow
 
@@ -139,6 +153,8 @@ Before reporting success, verify:
 - Any ambiguous instrument was resolved with the correct ISIN.
 - The final page loaded successfully.
 - The summary metrics are visible.
+
+If the build used the bundled script, prefer the script's structured output for matched rows and allocations, then use page inspection only as a final confirmation step.
 
 If comparing portfolios, also verify:
 
@@ -190,6 +206,7 @@ Example:
 
 Avoid these mistakes:
 
+- Opening the full ETF dropdown and trying to reason over every option when typed search plus exact matching is available.
 - Referring to a tool that may not exist in the target environment.
 - Reporting the requested ticker when Curvo actually selected a different fund.
 - Comparing portfolios with different date ranges without saying so.

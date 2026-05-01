@@ -1,0 +1,28 @@
+{
+  "headless": true,
+  "runBacktest": true,
+  "baseUrl": "https://curvo.eu/backtest/en/portfolio/new",
+  "portfolio": [
+    {
+      "label": "Vanguard FTSE All-World UCITS ETF",
+      "weight": 40
+    },
+    {
+      "label": "iShares MSCI World Small Cap UCITS ETF",
+      "weight": 10
+    },
+    {
+      "label": "Invesco Physical Gold",
+      "weight": 15
+    },
+    {
+      "label": "XEON",
+      "weight": 10,
+      "isin": "LU0290358497"
+    },
+    {
+      "label": "Amundi Euro Government Bond 7-10Y UCITS ETF",
+      "weight": 25
+    }
+  ]
+}

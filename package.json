@@ -1,0 +1,13 @@
+{
+  "name": "simoneb-skills",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Personal reusable skills and helpers",
+  "scripts": {
+    "validate:skills": "python scripts/validate_skills.py",
+    "test:curvo": "node skills/curvo-backtest-workflows/scripts/curvo_build_portfolio.js skills/curvo-backtest-workflows/examples/payload.example.json"
+  },
+  "dependencies": {
+    "playwright": "^1.54.1"
+  }
+}
